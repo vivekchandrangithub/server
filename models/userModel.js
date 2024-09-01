@@ -1,34 +1,40 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
-    name:{
-        type:string,
-        required:true
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
     },
-    email:{
-        type:string,
-        required:true,
-        unique:true
+    email: {
+        type: String,
+        required: true,
+        unique: true,
     },
-    password:{
-        type:string,
-        required:true,
-        minLenght:8,
+    password: {
+        type: String,
+        required: true,
+        minLenght: 8,
+        trim:true
     },
-    phone:{
-        type:string,
-        required:true
+    phone: String,
+    profilePic: {
+        type: String,
+        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt_NZykul07nU3cliFuRZQr4_q-gOdkRTmRA&s",
     },
-    profilePic:{
-        type:string,
-        default:"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
+    address:{
+        houseNo:String,
+        street:String,
+        pin:String,
+        state:String
     },
-    course:{
-        type:Schema.Types.ObjectId,
-        ref:"course",
-    }
+    course: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Course",
+        },
+    ],
 });
 
-const User = mongoose.model('User',userSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = {user};
+module.exports = { User };

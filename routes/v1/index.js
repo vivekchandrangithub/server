@@ -1,10 +1,10 @@
 const express = require('express');
 const { userRouter } = require('./userRoutes');
-const { courseRouter } = require('./courseRoutes');
+const { foodRouter } = require('./foodRoutes');
 
 const v1Router = express.Router();
 
 v1Router.use('/user',userRouter);
-v1Router.use('/course', courseRouter);
+v1Router.use('/food',  foodRouter);
 
 module.exports = {v1Router};

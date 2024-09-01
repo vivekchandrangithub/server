@@ -2,13 +2,15 @@ const express = require('express');
 const { apiRouter } = require('./routes');
 const { connect } = require('mongoose');
 const { connectDB } = require('./config/db');
+const port = 3000;
+
 const app = express()
-const port = 3000
+app.use(express.json())
 
 connectDB();
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('HELLO BACKEND DEVELOPER')
 })
 
 app.use("/api", apiRouter);

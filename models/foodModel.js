@@ -1,22 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const foodSchema = mongoose.Schema({
-   title:{
-    type:String,
-    required:true,
-    unique:true
-   },
+const foodSchema = new mongoose.Schema({
+   name: {
+      type: String,
+      required: true,
+  },
    image:{
-    type:string,
+    type: String,
     default:"https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?v=1530129081"
    },
    description:{
-    type:string,
+    type: String,
     minLength:50,
     maxLenght:500
    }
 });
 
-const Food = mongoose.model('Food',foodSchema);
+const Food = mongoose.model("Food",foodSchema);
 
 module.exports = {Food};
