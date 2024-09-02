@@ -6,8 +6,8 @@ const router =express.Router();
 
 router.get("/", getAllFoods);
 router.get("/:id", getFoodById );
-router.post("/", createFood); // Assume admin authorization required
-router.put("/:id", updateFood ); // Assume admin authorization required
-router.delete("/:id", deleteFood); // Assume admin authorization required
+router.post("/", createFood); 
+router.put("/:id", updateFood ); 
+router.delete("/:id", deleteFood); 
 
 module.exports={foodRouter: router};
