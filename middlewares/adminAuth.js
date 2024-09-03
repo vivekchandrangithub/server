@@ -16,9 +16,7 @@ const adminAuth = (req, res, next) => {
         if (tokenVerified.role !== "admin") {
             return res.status(401).json({ success: false, message: "user not autherized" });
         }
-
         req.user = tokenVerified;
-
         next();
     } catch (error) {
         console.log(error);
